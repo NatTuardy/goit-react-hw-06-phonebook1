@@ -1,6 +1,3 @@
-import { nanoid } from "nanoid";
-import { combineReducers } from "redux";
-
 import types from "./types";
 
 const initialStore = {
@@ -11,17 +8,8 @@ const initialStore = {
 };
 
 const reducer = (store = { ...initialStore }, action) => {
-  //   switch (action.type) {
-  //     case types.ADD_TO_CONTACTS:
-  //       const newContact = { ...action.payload };
-  //       const newContacts = [...store.contacts.items, newContact];
-  //       return { ...store.contacts, items: newContacts };
-  //     default:
-  //       return store;
-  //   }
-
   switch (action.type) {
-    case types.ADD_TO_C0NTACTS:
+    case types.ADD_TO_CONTACTS:
       const newContact = { ...action.payload };
       const newContacts = [...store.contacts.items, newContact];
       return { contacts: { ...store.contacts, items: newContacts } };
@@ -39,33 +27,5 @@ const reducer = (store = { ...initialStore }, action) => {
       return store;
   }
 };
-
-// const contactsReducer = (state = [], action) => {
-//   switch (action.type) {
-//     case types.ADD_TO_C0NTACTS:
-//       return [...state, action.payload];
-
-//     case types.REMOVE_FROM_CONTACTS:
-//       return state.filter((item) => item.id !== action.payload);
-
-//     default:
-//       return state;
-//   }
-// };
-
-// const filterReducer = (state = "", action) => {
-//   switch (action.type) {
-//     case types.UPDATE_FILTER:
-//       return action.payload;
-
-//     default:
-//       return state;
-//   }
-// };
-
-// export default combineReducers({
-//   items: contactsReducer,
-//   filter: filterReducer,
-// });
 
 export default reducer;
